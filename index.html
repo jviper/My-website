@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Deck Repair | Deck Restoration & Repair</title>
+    <meta name="description" content="Precision Deck Repair specializes in professional deck restoration, repair, staining, and sealing. Serving homeowners with quality craftsmanship. Get your free estimate today!">
+    <style>
+        :root {
+            --wood-dark: #5c3a21;
+            --wood-medium: #8b5e3c;
+            --wood-light: #c49a6c;
+            --cream: #faf6f1;
+            --sage: #6b7f5e;
+            --sage-dark: #4a5c3f;
+            --charcoal: #2d2d2d;
+            --white: #ffffff;
+            --gold-accent: #d4a853;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+            --radius: 12px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAVIGATION ── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            padding: 0 2rem;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--sage);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--sage-dark);
+            font-weight: 600;
+            line-height: 1;
+        }
+        .logo-text strong {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            line-height: 1;
+            color: var(--charcoal);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--sage-dark);
+        }
+
+        .btn-nav {
+            background: var(--sage);
+            color: white !important;
+            padding: 10px 22px !important;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem !important;
+            letter-spacing: 0.2px;
+        }
+        .btn-nav:hover {
+            background: var(--sage-dark);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 92, 63, 0.35);
+        }
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--charcoal);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(170deg, #f5efe7 0%, #ede3d6 30%, #e2d4c2 60%, #d9c8b2 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 2rem 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -60px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 127, 94, 0.14) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--sage-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+        .hero-badge .star {
+            color: var(--gold-accent);
+            margin: 0 3px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.6px;
+        }
+        .hero h1 .highlight {
+            color: var(--sage-dark);
+            position: relative;
+            display: inline-block;
+        }
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 168, 83, 0.4);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #5a5046;
+            margin-bottom: 2.2rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--sage);
+            color: white;
+            padding: 15px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 24px rgba(74, 92, 63, 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--sage-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(74, 92, 63, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            padding: 14px 34px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid var(--charcoal);
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .number {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--sage-dark);
+            line-height: 1;
+        }
+        .hero-stat .label {
+            font-size: 0.85rem;
+            color: #6b6056;
+            font-weight: 500;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 90px 2rem;
+        }
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--sage-dark);
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.4px;
+        }
+        .section-subtitle {
+            color: #6b6056;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        /* ── SERVICES ── */
+        #services {
+            background: var(--cream);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem 1.8rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(107, 127, 94, 0.2);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: #f0f5ec;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #6b6056;
+            line-height: 1.6;
+        }
+
+        /* ── BEFORE / AFTER ── */
+        #gallery {
+            background: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            aspect-ratio: 4 / 3;
+            background: #e8e0d5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-item .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d5c9b8, #c4b59e, #b8a88c);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        .gallery-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--sage);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ── TESTIMONIALS ── */
+        #testimonials {
+            background: var(--cream);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--sage);
+        }
+        .testimonial-card .stars {
+            color: var(--gold-accent);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            color: #4a4038;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+        .testimonial-card .author span {
+            display: block;
+            font-weight: 400;
+            color: #8a7e72;
+            font-size: 0.8rem;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: white;
+        }
+        .about-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, #d5c9b8, #c4b59e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+        }
+        .about-image .placeholder-icon {
+            font-size: 5rem;
+            opacity: 0.6;
+        }
+        .about-text .check-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+        .about-text .check-list li {
+            padding: 6px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #4a4038;
+        }
+        .about-text .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--charcoal);
+            color: white;
+        }
+        #contact .section-label {
+            color: var(--gold-accent);
+        }
+        #contact .section-title {
+            color: white;
+        }
+        #contact .section-subtitle {
+            color: #c4bfb7;
+        }
+        .contact-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+            width: 100%;
+            resize: vertical;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.45);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--sage);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .contact-form select option {
+            color: var(--charcoal);
+            background: white;
+        }
+        .contact-form .btn-primary {
+            align-self: flex-start;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .contact-info-item .ci-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-info-item strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .contact-info-item span {
+            color: #c4bfb7;
+            font-size: 0.9rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1f1f1f;
+            color: #9a948b;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        footer .footer-brand {
+            color: white;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 100px 2rem 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .navbar {
+                padding: 0 1rem;
+            }
+            .nav-inner {
+                height: 65px;
+            }
+            .about-flex,
+            .contact-flex {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 60px 1rem;
+            }
+            .about-image {
+                aspect-ratio: 3 / 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .services-grid,
+            .gallery-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">🪵</div>
+                <div class="logo-text">
+                    <span>Precision</span>
+                    <strong>Deck Repair</strong>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="btn-nav">Free Estimate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="star">★</span> Trusted Deck Restoration <span class="star">★</span>
+            </div>
+            <h1>Your Deck, <span class="highlight">Reborn</span> — Restored to Its Former Glory</h1>
+            <p>Precision Deck Repair brings weathered, worn-out decks back to life. From structural fixes to beautiful staining, we handle it all with meticulous craftsmanship.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">📋 Get a Free Estimate</a>
+                <a href="#services" class="btn-secondary">See Our Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">500+</div>
+                    <div class="label">Decks Restored</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">15+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">5★</div>
+                    <div class="label">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SERVICES ═══════════════ -->
+    <section id="services">
+        <div class="section-inner">
+            <span class="section-label">What We Do</span>
+            <h2 class="section-title">Comprehensive Deck Repair & Restoration</h2>
+            <p class="section-subtitle">From minor fixes to complete overhauls, we deliver precision workmanship that extends the life of your outdoor space.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Structural Repair</h3>
+                    <p>Rotted joists, loose railings, wobbly stairs — we reinforce and replace compromised structural components to make your deck safe and solid again.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪥</div>
+                    <h3>Power Washing & Cleaning</h3>
+                    <p>Deep cleaning that strips away years of grime, mold, and mildew, prepping the surface perfectly for the next step.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖌️</div>
+                    <h3>Staining & Sealing</h3>
+                    <p>Premium stains and sealers that protect against UV rays, moisture, and wear — bringing out the natural beauty of the wood.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪵</div>
+                    <h3>Board Replacement</h3>
+                    <p>Damaged, cracked, or warped boards carefully removed and replaced with matching lumber for a seamless look.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Sanding & Refinishing</h3>
+                    <p>We sand away splinters and rough patches, restoring a smooth, like-new surface ready for family gatherings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Railing & Stair Upgrades</h3>
+                    <p>Modernize with new railing systems, balusters, and stair treads that elevate both safety and curb appeal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ GALLERY ═══════════════ -->
+    <section id="gallery">
+        <div class="section-inner">
+            <span class="section-label">Our Work</span>
+            <h2 class="section-title">Before & After Transformations</h2>
+            <p class="section-subtitle">See the dramatic difference precision deck repair makes. Each project tells a story of renewal.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #9b8a78, #b8a088);">
+                        <span>Before: Weathered & Neglected</span>
+                    </div>
+                    <div class="gallery-badge">Before</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #c4a67a, #d4b88c, #b8956e);">
+                        <span>After: Restored & Stained</span>
+                    </div>
+                    <div class="gallery-badge" style="background: #d4a853;">After</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #8a7a65, #a09078);">
+                        <span>Before: Cracked & Faded</span>
+                    </div>
+                    <div class="gallery-badge">Before</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #bfa888, #cfb898, #ad9478);">
+                        <span>After: Rich Cedar Finish</span>
+                    </div>
+                    <div class="gallery-badge" style="background: #d4a853;">After</div>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:1.5rem; color:#8a7e72; font-size:0.9rem;">
+                📸 <em>Real project photos coming soon — placeholder images shown above.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+    <section id="testimonials">
+        <div class="section-inner">
+            <span class="section-label">Testimonials</span>
+            <h2 class="section-title">What Homeowners Say</h2>
+            <p class="section-subtitle">Our reputation is built on trust, quality, and decks that stand the test of time.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Precision Deck Repair completely transformed our 20-year-old deck. It looks better than when it was first built! The team was professional, on time, and meticulous."</p>
+                    <p class="author">Michael & Sarah T.<span>Homeowners, Portland OR</span></p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"I thought I needed a full replacement, but they saved my deck at a fraction of the cost. Honest, skilled, and truly passionate about their craft."</p>
+                    <p class="author">David R.<span>Homeowner, Lake Oswego</span></p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"The staining job is flawless — rich color, no streaks, and it's held up beautifully through two rainy seasons. Highly recommend!"</p>
+                    <p class="author">Linda G.<span>Homeowner, Beaverton</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about">
+        <div class="section-inner">
+            <div class="about-flex">
+                <div class="about-image">
+                    <span class="placeholder-icon">🪵</span>
+                </div>
+                <div class="about-text">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Precision Is In Our Name — And In Everything We Do</h2>
+                    <p style="color:#4a4038; line-height:1.7;">
+                        Founded with a simple mission: <strong>rescue decks from the brink</strong>. We believe every deck has a second life waiting to be unlocked. With over 15 years of hands-on experience, Precision Deck Repair combines old-school craftsmanship with modern techniques and materials.
+                    </p>
+                    <ul class="check-list">
+                        <li>Licensed, bonded & fully insured</li>
+                        <li>Free on-site assessments & honest quotes</li>
+                        <li>Premium-grade materials and finishes</li>
+                        <li>Satisfaction guaranteed on every project</li>
+                        <li>Eco-friendly cleaning solutions available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact">
+        <div class="section-inner">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Request Your Free Estimate</h2>
+            <p class="section-subtitle">Tell us about your deck and we'll get back to you within 24 hours with a personalized quote. No obligation, no pressure.</p>
+            <div class="contact-flex">
+                <form class="contact-form" id="contactForm" action="#" method="POST">
+                    <input type="text" name="name" placeholder="Full Name *" required>
+                    <input type="email" name="email" placeholder="Email Address *" required>
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <select name="service" required>
+                        <option value="" disabled selected>Select Service Needed</option>
+                        <option value="repair">Structural Repair</option>
+                        <option value="cleaning">Power Washing & Cleaning</option>
+                        <option value="staining">Staining & Sealing</option>
+                        <option value="replacement">Board Replacement</option>
+                        <option value="refinishing">Sanding & Refinishing</option>
+                        <option value="railing">Railing & Stair Upgrades</option>
+                        <option value="other">Other / Not Sure</option>
+                    </select>
+                    <textarea name="message" rows="4" placeholder="Tell us about your deck — size, condition, and what you're looking for..."></textarea>
+                    <button type="submit" class="btn-primary">Send Request ✉️</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="ci-icon">📞</div>
+                        <div>
+                            <strong>Call Us</strong>
+                            <span>(503) 555-0142</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="ci-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong>
+                            <span>info@ondeckrescue.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="ci-icon">📍</div>
+                        <div>
+                            <strong>Service Area</strong>
+                            <span>Portland Metro & Surrounding Areas</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="ci-icon">🕐</div>
+                        <div>
+                            <strong>Hours</strong>
+                            <span>Mon–Fri: 7am–6pm | Sat: 8am–4pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+        <p class="footer-brand">Precision Deck Repair</p>
+        <p>&copy; 2026 Precision Deck Repair — ondeckrescue.com — All rights reserved.</p>
+        <p style="margin-top:6px;">Proudly serving the Portland Metro area. Licensed & Insured.</p>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // ── Mobile Menu Toggle ──
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Navbar scroll shadow ──
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ── Active nav link highlight on scroll ──
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a:not(.btn-nav)');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navAnchors.forEach(anchor => {
+                anchor.classList.remove('active');
+                if (anchor.getAttribute('href') === '#' + current) {
+                    anchor.classList.add('active');
+                }
+            });
+        });
+
+        // ── Smooth form submission (prevent default for demo) ──
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Request Sent!';
+            btn.style.background = '#4a5c3f';
+            btn.style.pointerEvents = 'none';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.style.pointerEvents = '';
+                contactForm.reset();
+            }, 3000);
+            alert('Thank you! Your estimate request has been received. We\'ll get back to you within 24 hours. \n\n— Precision Deck Repair');
+        });
+
+        console.log('🪵 Precision Deck Repair — ondeckrescue.com — Ready to serve!');
+    </script>
+</body>
+</html>
