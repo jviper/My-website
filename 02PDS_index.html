@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Deck Repair | Structural Deck Restoration in Clinton County</title>
+    <meta name="description" content="Precision Deck Repair specializes in structural deck restoration, ledger repair, and composite upgrades in Aviston, IL and Clinton County. We engineer the fix before we lay the finish.">
+    <style>
+        :root {
+            --primary-dark: #1A1A1D;
+            --secondary-dark: #2D2D34;
+            --accent-orange: #FF5A00;
+            --accent-hover: #E04E00;
+            --white: #FFFFFF;
+            --light-bg: #F4F4F6;
+            --text-main: #222222;
+            --text-muted: #555555;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --radius: 4px;
+            --transition: 0.3s ease;
+            --font-heading: 'Arial Black', 'Arial Bold', sans-serif;
+            --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { font-family: var(--font-body); color: var(--text-main); background-color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        /* ── NAVIGATION ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--primary-dark);
+            border-bottom: 3px solid var(--accent-orange);
+            padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px;
+        }
+        .logo {
+            text-decoration: none; color: var(--white); font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .logo span { color: var(--accent-orange); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent-orange); }
+        
+        .btn-nav {
+            background: var(--accent-orange); color: var(--white) !important; padding: 10px 24px !important; border-radius: var(--radius);
+        }
+        .btn-nav:hover { background: var(--accent-hover); }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .menu-toggle span { display: block; width: 25px; height: 3px; background: var(--white); transition: var(--transition); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: flex-start;
+            background: linear-gradient(rgba(26, 26, 29, 0.85), rgba(26, 26, 29, 0.95)), url('night deck lights.jpg') center/cover no-repeat;
+            padding: 120px 2rem 80px;
+        }
+        .hero-content { max-width: 800px; margin: 0 auto; width: 100%; }
+        .hero-badge {
+            display: inline-block; background: var(--accent-orange); color: var(--white);
+            padding: 6px 16px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase;
+        }
+        .hero h1 span { color: var(--accent-orange); }
+        .hero p { font-size: 1.2rem; color: #D1D1D1; margin-bottom: 2.5rem; max-width: 650px; line-height: 1.8; }
+        
+        .btn-primary {
+            display: inline-block; background: var(--accent-orange); color: var(--white);
+            padding: 18px 40px; font-weight: 800; font-size: 1.1rem; text-decoration: none; text-transform: uppercase;
+            border-radius: var(--radius); transition: var(--transition); border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+        /* ── SECTIONS ── */
+        section { padding: 100px 2rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-header { margin-bottom: 4rem; max-width: 700px; }
+        .section-label { display: block; color: var(--accent-orange); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .section-title { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); color: var(--primary-dark); line-height: 1.2; text-transform: uppercase; }
+        
+        /* ── PAS / PROBLEM SECTION ── */
+        #problem { background: var(--light-bg); border-left: 8px solid var(--accent-orange); }
+        .problem-text { font-size: 1.2rem; color: var(--text-main); font-weight: 500; }
+
+        /* ── SERVICES ── */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .service-card {
+            background: var(--white); padding: 3rem 2rem; border: 1px solid #E0E0E0;
+            border-top: 4px solid var(--primary-dark); transition: var(--transition);
+        }
+        .service-card:hover { border-top-color: var(--accent-orange); box-shadow: var(--shadow-md); transform: translateY(-5px); }
+        .service-card h3 { font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 1rem; text-transform: uppercase; font-weight: 800; }
+        .service-card p { color: var(--text-muted); font-size: 1rem; }
+
+        /* ── PROCESS / PORTFOLIO ── */
+        #process { background: var(--primary-dark); color: var(--white); }
+        #process .section-title { color: var(--white); }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .process-item { position: relative; overflow: hidden; aspect-ratio: 4/3; border: 2px solid var(--secondary-dark); }
+        .process-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: var(--transition); }
+        .process-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .process-label {
+            position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(26, 26, 29, 0.9);
+            padding: 10px; color: var(--accent-orange); font-weight: 700; text-transform: uppercase; font-size: 0.85rem;
+        }
+
+        /* ── CONTACT ── */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%; padding: 16px; border: 1px solid #CCC; background: var(--light-bg);
+            font-family: var(--font-body); font-size: 1rem; color: var(--primary-dark);
+        }
+        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+            outline: none; border-color: var(--accent-orange); background: var(--white);
+        }
+        .contact-info { background: var(--primary-dark); padding: 3rem; color: var(--white); }
+        .info-block { margin-bottom: 2rem; }
+        .info-block h4 { color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .info-block p { font-size: 1.1rem; font-weight: 600; }
+
+        /* ── FOOTER ── */
+        footer { background: #111; color: #777; text-align: center; padding: 2rem; border-top: 1px solid #333; }
+        footer strong { color: #FFF; text-transform: uppercase; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; position: absolute; top: 80px; left: 0; width: 100%;
+                background: var(--primary-dark); flex-direction: column; padding: 2rem; gap: 1.5rem;
+                border-bottom: 3px solid var(--accent-orange);
+            }
+            .nav-links.active { display: flex; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">Precision <span>Deck Repair</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#problem">The Threat</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Our Process</a></li>
+                <li><a href="#contact" class="btn-nav">Get Estimate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Clinton County Structural Specialists</div>
+            <h1>Don't Paint Over Rot.<br><span>Rebuild With Precision.</span></h1>
+            <p>We identify hidden decay, reinforce compromised framing, and deliver premium structural upgrades that meet strict load-bearing safety standards.</p>
+            <a href="#contact" class="btn-primary">Secure Your Deck Today</a>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section id="problem">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Structural Integrity</span>
+                <h2 class="section-title">Is Your Deck Structurally Sound, or Just Standing?</h2>
+            </div>
+            <p class="problem-text">Most contractors focus strictly on the surface aesthetics. However, water ingress, ledger board decay, and failing concrete footings are silent threats. A wobbly railing or a soft joist is not a cosmetic issue—it is a structural liability. We do not apply band-aid fixes. We strip the assembly down to the framing and engineer the solution before laying the finish.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Technical Competence</span>
+                <h2 class="section-title">Engineered Repair Scopes</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Structural Framing & Ledger Repair</h3>
+                    <p>Diagnosis and replacement of rotted joists, decayed rim boards, and compromised ledger attachments to ensure maximum load-bearing capacity.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Surface Replacement & Upgrades</h3>
+                    <p>Complete removal of failing organic materials. Transitioning your structural footprint to high-yield composite decking with hidden fastener architecture.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Footing & Foundation Stabilization</h3>
+                    <p>Correcting settling issues, reinforcing substructures, and pouring high-strength concrete footings to stop structural migration.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Finish Carpentry</h3>
+                    <p>Integration of rigid stair stringers, modernized railing parameters, and low-voltage electrical lighting systems for immediate aesthetic authority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS / PORTFOLIO -->
+    <section id="process">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Execution</span>
+                <h2 class="section-title">The Rebuild Sequence</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <img src="deck.jpg" alt="Deck Demolition and Stone Foundation Exposure">
+                    <div class="process-label">Phase 1: Demolition & Substructure Assessment</div>
+                </div>
+                <div class="process-item">
+                    <img src="deck2.jpg" alt="Deck Joist Framing over Foundation">
+                    <div class="process-label">Phase 2: Joist & Framing Reinforcement</div>
+                </div>
+                <div class="process-item">
+                    <img src="deck3.jpg" alt="Deck Structural Leveling">
+                    <div class="process-label">Phase 3: Leveling & Load Distribution</div>
+                </div>
+                <div class="process-item">
+                    <img src="deck4.jpg" alt="Deck Decking Application">
+                    <div class="process-label">Phase 4: Surface Integration & Finish</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div>
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <span class="section-label">Dispatch</span>
+                        <h2 class="section-title">Request an Estimate</h2>
+                    </div>
+                    <form class="contact-form" action="mailto:info@ondeckrescue.com" method="POST" enctype="text/plain">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <select name="service_type" required>
+                            <option value="" disabled selected>Primary Structural Issue</option>
+                            <option value="Framing">Framing / Ledger / Structural</option>
+                            <option value="Surface">Surface Board Replacement</option>
+                            <option value="Stairs">Stairs & Railings</option>
+                            <option value="Other">Unknown Diagnosis</option>
+                        </select>
+                        <textarea name="details" rows="5" placeholder="Detail the structural degradation or project scope..." required></textarea>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Transmit Request</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-transform: uppercase;">Operations Data</h3>
+                    <div class="info-block">
+                        <h4>Direct Line</h4>
+                        <p>(618) 858-1404</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>Service Area</h4>
+                        <p>Aviston, IL & Clinton County</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>Operating Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                        <p>Saturday: 8:00 AM - 3:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>Digital Routing</h4>
+                        <p>info@ondeckrescue.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Precision Deck Repair</strong> &copy; 2026. All operations localized to Clinton County, IL.</p>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
